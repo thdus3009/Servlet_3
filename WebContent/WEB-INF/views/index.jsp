@@ -39,8 +39,8 @@
   <h3>Right Aligned Navbar</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
-<!-- Nav -->	
 
+<!-- Nav -->	
 <div class="container">
   <div class="jumbotron">
     <h1>Bootstrap Tutorial</h1>      
@@ -50,6 +50,6 @@
   <p>This is another text.</p>      
 </div>
 
-
+	<h1>Add Point Branch</h1>
 </body>
 </html>
