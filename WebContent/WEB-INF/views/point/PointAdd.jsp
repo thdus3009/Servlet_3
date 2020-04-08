@@ -51,6 +51,7 @@
 </div>
 
 	<h1>Point Add Page</h1>
+	
 
 </body>
 </html>

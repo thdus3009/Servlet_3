@@ -1,6 +1,7 @@
 package com.sy.point;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,12 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/PointController")
 public class PointController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+     
+	private PointService pointService;
     /**
      * @see HttpServlet#HttpServlet()
      */
     public PointController() {
         super();
+        this.pointService = new PointService();
         // TODO Auto-generated constructor stub
     }
 
@@ -45,10 +48,13 @@ public class PointController extends HttpServlet {
 		String path = "";
 		
 		//forward인지 redirect인지 
+		try {
 		if(command.equals("/pointList")) {
 			
-			
-			check = true;//check는 false일때만 써주면 된다.
+			ArrayList<PointDTO> ar = pointService.pointList();
+			request.setAttribute("list", ar); //key값을 본인이 잘 기억할 이름으로 지정 //Object(value)는 arraylist(kor,eng,math,..정보들어있는것)인 ar
+	
+			//check는 false일때만 써주면 된다.
 			path = "../WEB-INF/views/point/pointList.jsp";
 			
 		}else if(command.equals("/pointAdd")){
@@ -68,14 +74,30 @@ public class PointController extends HttpServlet {
 			
 		}else if(command.equals("/pointSelect")) {
 			
+			int num= Integer.parseInt(request.getParameter("num"));
+			PointDTO pointDTO = pointService.pointSelect(num);
+			
+			request.setAttribute("dto", pointDTO);
+			
 			path = "../WEB-INF/views/point/pointSelect.jsp";
 			
+			
 		}else if(command.equals("/pointDelete")) {
+			int num = Integer.parseInt(request.getParameter("num"));
 
-			path = "../WEB-INF/views/point/pointDelete.jsp";
+			int result = pointService.pointDelete(num);
+			
+			check=false;
+			path="./pointList";			
+			
 		}else {
 			System.out.println("etc");
 		}
+		} catch (Exception e) {
+			// e.printStackTrace()/ 에러 메세지를 출력해준다는 내용
+			e.printStackTrace();
+		}
+		
 		
 		//url주소는 path에 담고있다.//check가 true면 Forward,false면 redirect 선택
 		if(check) {//forward

@@ -1,11 +1,11 @@
 # Servlet_3
  
 ## 기능
--point list 출력
--point 등록
--point 상세 정보 출력
--point 수정
--point 삭제
+- point list 출력
+- point 등록
+- point 상세 정보 출력
+- point 수정
+- point 삭제
 
 ## jsp 
 - pointList.jsp		: List출력
