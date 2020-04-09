@@ -45,44 +45,36 @@
 	<div class="container">
 	<div class="row">
 	<h1>Point Update Page</h1>
-	<table class="table table-hover">
-	<!-- 수정되기전의 기존값이 들어가 있어야 한다. -->
-		
-		<form action="./pointMod" method="post">
+	
+	<form action="./pointMod" method="post">
     <div class="form-group">
       <label for="Name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name"
-      value= "${dto.name}">
+      <input type="text" value="${dto.name}" class="form-control" id="name" placeholder="Enter Name" name="name">
     </div>
 
     <div class="form-group">
       <label for="Num">Num:</label>
-      <input type="text" class="form-control" id="num" placeholder="Enter Num" name="num" 
-      value= "${dto.num}" readonly="readonly">
+      <input type="text" value="${dto.num}" readonly="readonly" class="form-control" id="num" placeholder="Enter Num" name="num">
     </div> 
        
     <div class="form-group">
       <label for="Kor">Kor:</label>
-      <input type="text" class="form-control" id="kor" placeholder="Enter Kor" name="kor"
-      value= "${dto.kor}">
+      <input type="text" value="${dto.kor}" class="form-control" id="kor" placeholder="Enter Kor" name="kor">
     </div>  
     
     <div class="form-group">
       <label for="Num">Eng:</label>
-      <input type="text" class="form-control" id="eng" placeholder="Enter Eng" name="eng"
-      value= "${dto.eng}">
+      <input type="text" value="${dto.eng}" class="form-control" id="eng" placeholder="Enter Eng" name="eng">
     </div>  
     
     <div class="form-group">
       <label for="Math">Math:</label>
-      <input type="text" class="form-control" id="math" placeholder="Enter Math" name="math"
-      value= "${dto.math}">
+      <input type="text" value="${dto.math}" class="form-control" id="math" placeholder="Enter Math" name="math">
     </div>          
    
-      <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Update</button>
     
   </form>
-
 
 	</div>
 	</div>

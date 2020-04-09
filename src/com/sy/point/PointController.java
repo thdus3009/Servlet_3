@@ -65,13 +65,19 @@ public class PointController extends HttpServlet {
 				pointDTO.setKor(Integer.parseInt(request.getParameter("kor")));
 				pointDTO.setEng(Integer.parseInt(request.getParameter("eng")));
 				pointDTO.setMath(Integer.parseInt(request.getParameter("math")));
+				
 				//총점평균은 service
 				int result = pointService.pointAdd(pointDTO);
 				
-				//pointService.pointList();
-				//pointList로 유도 > redirect
-				check = false;
-				path = "./pointList.jsp";
+				String msg="점수등록실패";
+				if(result>0) {
+					msg="점수등록성공";
+				}
+				
+				request.setAttribute("result", msg);
+				request.setAttribute("pass", "./pointList");
+				
+				path="../WEB-INF/views/common/result.jsp";//result파일경로
 				
 				
 			}else {
@@ -90,9 +96,19 @@ public class PointController extends HttpServlet {
 		
 			int result = pointService.pointMod(pointDTO);
 			
-			check= false;
-			path = "./pointSelect?num="+pointDTO.getNum();
+			String msg= "수정실패";
+			if(result>0) {
+				msg = "수정성공";
+				request.setAttribute("path", "./pointSelect?num="+pointDTO.getNum());
+				
+			}else {
+				//실패하면 list로 보내기
+				request.setAttribute("path", "./pointList");
+			}
 			
+			request.setAttribute("result", msg);
+			
+			path = "../WEB-INF/views/common/result.jsp";
 				
 			}else {
 	            int num = Integer.parseInt(request.getParameter("num")); //select정보를 dto에 보내서 mod로 보냄

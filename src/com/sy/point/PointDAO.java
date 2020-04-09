@@ -19,8 +19,8 @@ public class PointDAO {
 		int result=0;
 		
 		Connection con = DBConnect.getConnection();
-		String sql = "update point set name=?,kor=?,eng=?,math=?, total=?, avg=? where num=?";
-		
+		String sql = "update point set name=?, kor=?, eng=?, math=?, total=?, avg=? where num=?";
+		 
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, pointDTO.getName());
@@ -33,7 +33,7 @@ public class PointDAO {
 		
 		
 		result = st.executeUpdate();
-		
+		System.out.println(result);
 		st.close();
 		con.close();
 		
@@ -46,7 +46,7 @@ public class PointDAO {
 		int result=0;
 		
 		Connection con = DBConnect.getConnection();
-		String sql = "INSERT INTO POINT VALUES (?,?,?,?,?,?,?);";
+		String sql = "INSERT INTO POINT VALUES (?,?,?,?,?,?,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
