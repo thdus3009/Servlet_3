@@ -54,7 +54,7 @@ public class PointController extends HttpServlet {
 			request.setAttribute("list", ar); //key값을 본인이 잘 기억할 이름으로 지정 //Object(value)는 arraylist(kor,eng,math,..정보들어있는것)인 ar
 	
 			//check는 false일때만 써주면 된다.
-			path = "../WEB-INF/views/point/pointList.jsp";
+			path = "../WEB-INF/views/point/PointList.jsp";
 			
 		}else if(command.equals("/pointAdd")){
 			if(method.equals("POST")) {
@@ -81,7 +81,7 @@ public class PointController extends HttpServlet {
 				
 				
 			}else {
-				path="../WEB-INF/views/point/pointAdd.jsp";
+				path="../WEB-INF/views/point/PointAdd.jsp";
 			}
 			
 			
@@ -114,7 +114,7 @@ public class PointController extends HttpServlet {
 	            int num = Integer.parseInt(request.getParameter("num")); //select정보를 dto에 보내서 mod로 보냄
 	            PointDTO pointDTO = pointService.pointSelect(num);
 	            request.setAttribute("dto", pointDTO);
-	            path = "../WEB-INF/views/point/pointMod.jsp";
+	            path = "../WEB-INF/views/point/PointMod.jsp";
 			}
 			
 		}else if(command.equals("/pointSelect")) {
@@ -124,7 +124,7 @@ public class PointController extends HttpServlet {
 			
 			request.setAttribute("dto", pointDTO);
 			
-			path = "../WEB-INF/views/point/pointSelect.jsp";
+			path = "../WEB-INF/views/point/PointSelect.jsp";
 			
 			
 		}else if(command.equals("/pointDelete")) {
