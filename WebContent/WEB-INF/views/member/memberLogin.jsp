@@ -1,20 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- BootStrap API -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
-	
-<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">WebSiteName</a>
@@ -45,40 +44,50 @@
 <!-- Nav -->	
 <div class="container">
   <div class="jumbotron">
-    <h1>Point</h1>      
+    <h1>Member Login</h1>      
     <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
   </div>
-  <p>This is some text.</p>      
-  <p>This is another text.</p>      
-</div><br>
-
-	
-	
-<!-- jsp출력(EL사용) name은 key값이다. -->
-<div class="container">
-	<div class="row">
-	<h1>Point List Page</h1><br>
-		<table class="table table-hover">
-			<tr>
-				<td>번호</td>
-				<td>이름</td>
-				<td>평균</td>
-			</tr>
-			
-			<c:forEach items="${list}" var="dto"><!-- list에서 꺼내 dto에 닮기 ,list만 써도 된다.-->
-				<tr>
-					<td>${dto.num}</td>
-					<td><a href="./pointSelect?num=${dto.num}">${dto.name}</a></td><!--a태그걸기 , 주소는 현재 페이지 기준으로 작성-, PointController에서 좀더 자세한 주소로 이동시켜줌--->
-					<td>${dto.avg}</td><!-- 상세정보는 select에서 -->
-				</tr>			
-			</c:forEach>
-
-		</table>
-		
-		<a href="./pointAdd" class="btn btn-primary">Point Add</a>
-		
-	</div>
+     
 </div>
+
+	<div class="container">
+		<div class="row">
+			<form class="form-horizontal" action="./memberLogin" method="post">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="id">ID:</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" id="id" placeholder="Enter ID" name="id">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="pw">Password:</label>
+					<div class="col-sm-10">
+						<input type="password" class="form-control" id="pw" placeholder="Enter Password" name="pw">
+					</div>
+				</div>
+				
+						
+				
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<div class="checkbox">
+							<label><input type="checkbox" name="remember">Remember me</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-default">Submit</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+
+
 
 </body>
 </html>

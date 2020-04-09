@@ -2,6 +2,17 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
 
 	<servlet>
+		<servlet-name>member</servlet-name>
+		<servlet-class>com.sy.member.MemberController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>member</servlet-name>
+		<url-pattern>/member/*</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
 		<servlet-name>point</servlet-name>
 		<servlet-class>com.sy.point.PointController</servlet-class>
 	</servlet>

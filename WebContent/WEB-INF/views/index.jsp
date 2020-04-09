@@ -31,8 +31,17 @@
       <li><a href="${pageContext.request.contextPath}/point/pointList">Point</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    
+    <c:if test="${empty member}"><!-- sessionScope.생략가능 -->
+      <li><a href="${pageContext.request.contextPath}/member/memberJoin"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="${pageContext.request.contextPath}/member/memberLogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </c:if>
+      
+    <c:if test="${not empty member}">  
+      <li><a href="${pageContext.request.contextPath}/member/memberMyPage"><span class="glyphicon glyphicon-user"></span> My Page</a></li>
+      <li><a href="${pageContext.request.contextPath}/member/memberLogOut"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+    </c:if>
+    
     </ul>
   </div>
 </nav>
@@ -45,14 +54,12 @@
 <!-- Nav -->	
 <div class="container">
   <div class="jumbotron">
-    <h1>Bootstrap Tutorial</h1>      
+    <h1>Main Page</h1>      
     <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
   </div>
-  <p>This is some text.</p>      
-  <p>This is another text.</p>      
+     
 </div>
 
-	<h1>Add Point Branch</h1>
 
 </body>
 </html>
