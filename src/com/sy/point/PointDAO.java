@@ -14,7 +14,34 @@ public class PointDAO {
 	//sql문은 문법에 맞게썼는가(?표갯수나 오타등..)
 	//DB의 컬럼명과 일치하는지 확인
 	
-	//4.Add
+	//5.Update(Mod)
+	public int pointUpdate(PointDTO pointDTO) throws Exception{
+		int result=0;
+		
+		Connection con = DBConnect.getConnection();
+		String sql = "update point set name=?,kor=?,eng=?,math=?, total=?, avg=? where num=?";
+		
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, pointDTO.getName());
+		st.setInt(2, pointDTO.getKor());
+		st.setInt(3, pointDTO.getEng());
+		st.setInt(4, pointDTO.getMath());
+		st.setInt(5, pointDTO.getTotal());
+		st.setDouble(6, pointDTO.getAvg());
+		st.setInt(7, pointDTO.getNum());
+		
+		
+		result = st.executeUpdate();
+		
+		st.close();
+		con.close();
+		
+		return result;
+
+	}
+	
+	//4.Add(Insert)
 	public int pointAdd(PointDTO pointDTO) throws Exception{
 		int result=0;
 		
@@ -22,8 +49,6 @@ public class PointDAO {
 		String sql = "INSERT INTO POINT VALUES (?,?,?,?,?,?,?);";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		
-		ResultSet rs = st.executeQuery();
 		
 		st.setString(1, pointDTO.getName());
 		st.setInt(2, pointDTO.getNum());
@@ -36,7 +61,6 @@ public class PointDAO {
 		result = st.executeUpdate();
 		
 		st.close();
-		rs.close();
 		con.close();
 		
 		return result;

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 <!DOCTYPE html>
 <html>
@@ -65,7 +65,7 @@
 				<td>평균</td>
 			</tr>
 			
-			<c:forEach items="${requestScope.list}" var="dto"><!-- list에서 꺼내 dto에 닮기 ,list만 써도 된다.-->
+			<c:forEach items="${list}" var="dto"><!-- list에서 꺼내 dto에 닮기 ,list만 써도 된다.-->
 				<tr>
 					<td>${dto.num}</td>
 					<td><a href="./pointSelect?num=${dto.num}">${dto.name}</a></td><!--a태그걸기 , 주소는 현재 페이지 기준으로 작성-, PointController에서 좀더 자세한 주소로 이동시켜줌--->

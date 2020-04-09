@@ -50,7 +50,6 @@ public class PointController extends HttpServlet {
 		//forward인지 redirect인지 
 		try {
 		if(command.equals("/pointList")) {
-			
 			ArrayList<PointDTO> ar = pointService.pointList();
 			request.setAttribute("list", ar); //key값을 본인이 잘 기억할 이름으로 지정 //Object(value)는 arraylist(kor,eng,math,..정보들어있는것)인 ar
 	
@@ -59,6 +58,21 @@ public class PointController extends HttpServlet {
 			
 		}else if(command.equals("/pointAdd")){
 			if(method.equals("POST")) {
+				//db쪽으로 보내기
+				PointDTO pointDTO = new PointDTO();
+				pointDTO.setName(request.getParameter("name"));//파라미터이름,db컬럼명, dto변수명일치
+				pointDTO.setNum(Integer.parseInt(request.getParameter("num")));
+				pointDTO.setKor(Integer.parseInt(request.getParameter("kor")));
+				pointDTO.setEng(Integer.parseInt(request.getParameter("eng")));
+				pointDTO.setMath(Integer.parseInt(request.getParameter("math")));
+				//총점평균은 service
+				int result = pointService.pointAdd(pointDTO);
+				
+				//pointService.pointList();
+				//pointList로 유도 > redirect
+				check = false;
+				path = "./pointList.jsp";
+				
 				
 			}else {
 				path="../WEB-INF/views/point/pointAdd.jsp";
@@ -67,9 +81,24 @@ public class PointController extends HttpServlet {
 			
 		}else if(command.equals("/pointMod")) {
 			if(method.equals("POST")) {
+			PointDTO pointDTO = new PointDTO();
+			pointDTO.setName(request.getParameter("name"));
+			pointDTO.setKor(Integer.parseInt(request.getParameter("kor")));
+			pointDTO.setEng(Integer.parseInt(request.getParameter("eng")));
+			pointDTO.setMath(Integer.parseInt(request.getParameter("math")));
+			pointDTO.setNum(Integer.parseInt(request.getParameter("num")));
+		
+			int result = pointService.pointMod(pointDTO);
+			
+			check= false;
+			path = "./pointSelect?num="+pointDTO.getNum();
+			
 				
 			}else {
-				path="../WEB-INF/views/point/pointMod.jsp";
+	            int num = Integer.parseInt(request.getParameter("num")); //select정보를 dto에 보내서 mod로 보냄
+	            PointDTO pointDTO = pointService.pointSelect(num);
+	            request.setAttribute("dto", pointDTO);
+	            path = "../WEB-INF/views/point/pointMod.jsp";
 			}
 			
 		}else if(command.equals("/pointSelect")) {
@@ -101,6 +130,7 @@ public class PointController extends HttpServlet {
 		
 		//url주소는 path에 담고있다.//check가 true면 Forward,false면 redirect 선택
 		if(check) {//forward
+			
 			RequestDispatcher view = request.getRequestDispatcher(path);
 			view.forward(request, response);
 		}else {//redirect
