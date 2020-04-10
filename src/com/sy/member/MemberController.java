@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.sy.point.PointDTO;
+
 /**
  * Servlet implementation class MemberController
  */
@@ -39,7 +41,7 @@ public class MemberController extends HttpServlet {
 		String command = request.getPathInfo();
 		
 		String method = request.getMethod();
-		
+		//System.out.println(method);
 		boolean check = true;
 		
 		String path = "";
@@ -59,6 +61,7 @@ public class MemberController extends HttpServlet {
 					int result=memberService.memberJoin(memberDTO);
 					check=false;
 					path="../";
+				
 					
 				}else {
 					path="../WEB-INF/views/member/memberJoin.jsp";
@@ -70,6 +73,7 @@ public class MemberController extends HttpServlet {
 					MemberDTO memberDTO = new MemberDTO();
 					memberDTO.setId(request.getParameter("id"));
 					memberDTO.setPw(request.getParameter("pw"));
+					//id,pw꺼내서 memberService의 memberLogin으로 보내기
 					
 					memberDTO = memberService.memberLogin(memberDTO);
 					
@@ -79,11 +83,12 @@ public class MemberController extends HttpServlet {
 						
 						HttpSession session =request.getSession();
 						session.setAttribute("member", memberDTO);
+						//session에 로그인한 사람의 정보가 들어있다.(memberDTO)
 						check=false;
 						path="../";
 					}else {
 						request.setAttribute("result", "Login Fail");
-						request.setAttribute("path", "./memberLogin");
+						request.setAttribute("path", "./memberLogin");//jsp로 보내기
 						path="../WEB-INF/views/common/result.jsp";
 						
 					}
@@ -96,14 +101,63 @@ public class MemberController extends HttpServlet {
 				HttpSession session = request.getSession();
 				//session.removeAttribute("member");
 				
-				session.invalidate();//시간강제종료 //세션완료되서 없어짐
 				check=false;
 				path="../";
 				
 			}else if(command.equals("/memberMyPage")) {
-				HttpSession session = request.getSession();
 				
-				session.invalidate();
+				path="../WEB-INF/views/member/memberMyPage.jsp";
+				
+				
+			}else if(command.equals("/memberDelete")) {
+				
+				MemberDTO memberDTO =new MemberDTO();
+				
+				HttpSession session = request.getSession();
+				//login에서 가져옴
+				memberDTO = (MemberDTO) session.getAttribute("member");
+				int result = memberService.memberDelete(memberDTO);
+				
+				
+				if(result>0) {
+					session.invalidate(); //세션 강제종료
+				}
+				
+				check=false;
+				
+				path="../";
+				
+				
+			}else if(command.equals("/memberUpdate")) {
+				
+				if(method.equals("POST")) {//2번
+					HttpSession session = request.getSession();
+					
+					MemberDTO memberDTO = new MemberDTO();
+					
+					memberDTO.setId(request.getParameter("id"));
+					memberDTO.setName(request.getParameter("name"));
+					memberDTO.setPhone(request.getParameter("phone"));
+					memberDTO.setAge(Integer.parseInt(request.getParameter("age")));
+					memberDTO.setEmail(request.getParameter("email"));
+					
+					//memberDAO,memberService이동해서 작성
+					
+					int result = memberService.memberUpdate(memberDTO);
+					
+					if(result>0) {
+						session.setAttribute("member", memberDTO); //수정하겠다는 의미
+					}
+					
+					check = false;
+					path = "../";
+					
+				}else {//1번 먼저 주소로 이동(get)
+					
+					path="../WEB-INF/views/member/memberUpdate.jsp";
+					
+				}
+				
 				
 			}
 			

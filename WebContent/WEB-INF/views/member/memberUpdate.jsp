@@ -14,7 +14,7 @@
 <!-- Nav -->	
 <div class="container">
   <div class="jumbotron">
-    <h1>Member Join</h1>      
+    <h1>Member Update</h1>      
     <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
   </div>
   
@@ -27,32 +27,28 @@
 			
 	<div class="form-group">
       <label for="Id">ID:</label>
-      <input type="text" class="form-control" id="id" placeholder="Enter Id" name="id">
+      <input type="text" class="form-control" id="id" placeholder="Enter Id" name="id" value="${member.id}" readonly="readonly">
     </div>
 
-    <div class="form-group">
-      <label for="Pw">PW:</label>
-      <input type="password" class="form-control" id="pw" placeholder="Enter PassWord" name="pw">
-    </div> 
        
     <div class="form-group">
       <label for="Name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="${member.nme}">
     </div>  
     
     <div class="form-group">
       <label for="Age">Age:</label>
-      <input type="text" class="form-control" id="age" placeholder="Enter Age" name="age">
+      <input type="text" class="form-control" id="age" placeholder="Enter Age" name="age" value="${member.age}">
     </div>  
     
     <div class="form-group">
       <label for="Phone">Phone:</label>
-      <input type="text" class="form-control" id="phone" placeholder="Enter Phone" name="phone">
+      <input type="text" class="form-control" id="phone" placeholder="Enter Phone" name="phone" value="${member.phone}">
     </div>          
    
      <div class="form-group">
       <label for="Email">Email:</label>
-      <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email">
+      <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" value="${member.email}">
     </div>  
       
     <button type="submit" class="btn btn-default">Add</button><br><br>

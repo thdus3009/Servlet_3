@@ -12,12 +12,12 @@
 	</servlet-mapping>
 
 
-	<servlet>
+	<servlet><!-- point이름을 갖는것을 아래 servlet으로 보낸다.  -->
 		<servlet-name>point</servlet-name>
 		<servlet-class>com.sy.point.PointController</servlet-class>
 	</servlet>
 
-	<servlet-mapping>
+	<servlet-mapping><!-- /point/*주소를 가진것은 point라는 이름을 갖는다. -->
 		<servlet-name>point</servlet-name>
 		<url-pattern>/point/*</url-pattern>
 	</servlet-mapping>
