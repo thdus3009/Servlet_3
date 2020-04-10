@@ -9,7 +9,7 @@ public class MemberService {
 	}
 	
 	public int memberUpdate(MemberDTO memberDTO) throws Exception{
-		return memberDAO.memberDelete(memberDTO);
+		return memberDAO.memberUpdate(memberDTO);
 	}
 	
 	public int memberDelete(MemberDTO memberDTO) throws Exception{

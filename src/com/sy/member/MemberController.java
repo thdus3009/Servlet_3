@@ -58,10 +58,11 @@ public class MemberController extends HttpServlet {
 					memberDTO.setAge(Integer.parseInt(request.getParameter("age")));
 					memberDTO.setEmail(request.getParameter("email"));
 					
-					int result=memberService.memberJoin(memberDTO);
+					int result = memberService.memberJoin(memberDTO);
 					check=false;
+
 					path="../";
-				
+					
 					
 				}else {
 					path="../WEB-INF/views/member/memberJoin.jsp";
@@ -100,7 +101,7 @@ public class MemberController extends HttpServlet {
 			}else if(command.equals("/memberLogOut")){
 				HttpSession session = request.getSession();
 				//session.removeAttribute("member");
-				
+				session.invalidate();
 				check=false;
 				path="../";
 				

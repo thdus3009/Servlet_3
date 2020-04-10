@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="row">
 			<h1>Member Join</h1>
-			<form action="./memberJoin" method="post">
+			<form action="./memberUpdate" method="post">
 			
 	<div class="form-group">
       <label for="Id">ID:</label>
@@ -33,7 +33,7 @@
        
     <div class="form-group">
       <label for="Name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="${member.nme}">
+      <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" value="${member.name}">
     </div>  
     
     <div class="form-group">
@@ -51,7 +51,7 @@
       <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email" value="${member.email}">
     </div>  
       
-    <button type="submit" class="btn btn-default">Add</button><br><br>
+    <button type="submit" class="btn btn-default">Update</button><br><br>
     
 			
 			</form>

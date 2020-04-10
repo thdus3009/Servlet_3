@@ -34,7 +34,7 @@
 	<br>	
 	<button href="" class="btn btn-primary" id="d2" >Update</button>
 	<button type="submit" class="btn btn-danger" id="d1">Delete</button> <!-- 탈퇴버튼(한번더 확인해주어야함) -->
-		confirm
+		
 	</div>
 	</div>
 

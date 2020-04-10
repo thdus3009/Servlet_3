@@ -60,17 +60,18 @@ public class MemberDAO {
 		int result=0;
 		
 		Connection con = DBConnect.getConnection();
-		String sql = "insert into member values (?,?,?,?,?,?)";
+		String sql = "INSERT INTO MEMBER VALUES (?,?,?,?,?,?)";
 		
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPw());
 		st.setString(3, memberDTO.getName());
-		st.setInt(4, memberDTO.getAge());
-		st.setString(5, memberDTO.getPhone());
+		st.setString(4, memberDTO.getPhone());
+		st.setInt(5, memberDTO.getAge());
 		st.setString(6, memberDTO.getEmail());
 		
+		//이거작성할때 순서를 초반에 만든 그대로 적어야 에러가 나지 않는다.
 		
 		
 		result = st.executeUpdate();
