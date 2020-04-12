@@ -7,7 +7,7 @@
 	
   
 <div class="container">
-  <h3>Right Aligned Navbar</h3>
+  <h3>This is ListPage.. </h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
 
@@ -21,7 +21,6 @@
   <p>This is another text.</p>      
 </div><br>
 
-	
 	
 <!-- jsp출력(EL사용) name은 key값이다. -->
 <div class="container">
