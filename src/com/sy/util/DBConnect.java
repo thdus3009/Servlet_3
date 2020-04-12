@@ -29,9 +29,9 @@ public class DBConnect {
 		//1.driver명이 틀린경우
 		//2.jdbc6.jar가 없는 경우
 		
-		String user = "user02";
-		String password = "user02";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String user = "scott";
+		String password = "tiger";
+		String url = "jdbc:oracle:thin:@192.168.56.101:1521:xe";
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		
 		//2.드라이버를 메모리에 로딩
