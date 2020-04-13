@@ -7,7 +7,7 @@
 
 
 <div class="container">
-  <h3>Right Aligned Navbar</h3>
+  <h3>Welcome Our Website</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
 

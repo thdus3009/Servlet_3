@@ -5,23 +5,18 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/header.jsp"></c:import>
 	
-  
-<div class="container">
-  <h3>Right Aligned Navbar</h3>
-  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
-</div>
+
 
 <!-- Nav -->	
+<br>
 <div class="container">
   <div class="jumbotron">
     <h1>Point</h1>      
     <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
   </div>
-  <p>This is some text.</p>      
-  <p>This is another text.</p>      
+   
 </div><br>
 
-	
 	
 <!-- jsp출력(EL사용) name은 key값이다. -->
 <div class="container">
