@@ -116,6 +116,8 @@ public class PointDAO {
 		st.close();
 		con.close();
 		
+		System.out.println("pointDAO Select");
+		
 		return pointDTO;
 		
 		

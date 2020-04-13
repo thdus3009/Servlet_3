@@ -14,16 +14,10 @@ import javax.servlet.http.HttpSession;
 import com.sy.member.MemberDTO;
 
 
-/**
- * Servlet implementation class NoticeController
- */
 @WebServlet("/NoticeController")
 public class NoticeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
 	private NoticeService noticeService;
 	
     public NoticeController() {
@@ -31,9 +25,6 @@ public class NoticeController extends HttpServlet {
         this.noticeService = new NoticeService();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		//한글 Encoding 처리
@@ -62,6 +53,7 @@ public class NoticeController extends HttpServlet {
 			path = "../WEB-INF/views/notice/noticeList.jsp";
 			
 		}else if(command.equals("/noticeAdd")) {
+			System.out.println("here");
 			
 			if(method.equals("POST")) {
 				NoticeDTO noticeDTO = new NoticeDTO();
@@ -85,7 +77,7 @@ public class NoticeController extends HttpServlet {
 			}
 			
 		}else if(command.equals("/noticeDelete")) {
-			
+			System.out.println("here");
 			String num = request.getParameter("num");
 			int result = noticeService.noticeDelete(num);
 			
@@ -103,6 +95,7 @@ public class NoticeController extends HttpServlet {
 			NoticeDTO noticeDTO = new NoticeDTO();
 			
 			if(method.equals("POST")) {
+				System.out.println("notice here");
 				noticeDTO.setNum(Integer.parseInt(request.getParameter("num")));
 				noticeDTO.setSubject(request.getParameter("subject"));
 				noticeDTO.setText(request.getParameter("text"));
@@ -125,10 +118,15 @@ public class NoticeController extends HttpServlet {
 			}
 			
 		}else if(command.equals("/noticeSelect")) {
+			
 			int num = Integer.parseInt(request.getParameter("num"));
+			
 			NoticeDTO noticeDTO = noticeService.noticeSelect(num);
 			
+			System.out.println("noticeSE");
+			
 			request.setAttribute("dto", noticeDTO);
+			
 			
 			path = "../WEB-INF/views/notice/noticeSelect.jsp";
 		}

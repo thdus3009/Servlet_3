@@ -7,7 +7,7 @@
 
 	<div class="container">
   <h2>Notice Add</h2>
-  <form action="./boardAdd" method="post">
+  <form action="./noticeAdd" method="post">
   
     <div class="form-group">
    	 <label for="comment">Subject:</label>

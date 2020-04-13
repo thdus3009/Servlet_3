@@ -26,8 +26,8 @@
 					<div class="well" >${dto.text}</div>
 			
 			<c:if test="${member.id eq 'admin'}">
-			<a href="./boardDelete?num=${dto.num}" class="btn btn-danger">글삭제</a>
-			<a href="./boardMod?num=${dto.num}&subject=${dto.subject}&text=${dto.text}" class="btn btn-danger">글수정</a>
+			<a href="./noticeDelete?num=${dto.num}" class="btn btn-danger">글삭제</a>
+			<a href="./noticeMod?num=${dto.num}" class="btn btn-danger">글수정</a>
 			</c:if>
 		</div>
 	</div>

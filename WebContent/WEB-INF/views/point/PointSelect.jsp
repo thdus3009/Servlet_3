@@ -11,24 +11,30 @@
 			<h1>Board Select</h1>
 			<table class="table table-hover">
 				<tr>
-					<td>SUBJECT</td>
-					<td>ID</td>
-					<td>DATE</td>
-					<td>HIT</td>
+					<td>name</td>
+					<td>num</td>
+					<td>kor</td>
+					<td>eng</td>
+					<td>math</td>
+					<td>total</td>
+					<td>avg</td>
 				</tr>
 				
 					<tr>
-						<td>${dto.subject}</td>	<!-- 파라미터이름,컬럼명,변수명 을 같게 -->
-						<td>${dto.id}</td>
-						<td>${dto.creatDate}</td>
-						<td>${dto.hit}</td>
+						<td>${dto.name}</td>	<!-- 파라미터이름,컬럼명,변수명 을 같게 -->
+						<td>${dto.num}</td>
+						<td>${dto.kor}</td>
+						<td>${dto.eng}</td>
+						<td>${dto.math}</td>
+						<td>${dto.total}</td>
+						<td>${dto.avg}</td>
 					</tr>
 			</table>
-					<div class="well" >${dto.text}</div>
-			<c:if test="${member.id eq 'admin'}">
-			<a href="./boardDelete?num=${dto.num}" class="btn btn-danger">글삭제</a>
-			<a href="./boardMod?num=${dto.num}&subject=${dto.subject}&text=${dto.text}" class="btn btn-danger">글수정</a>
-			</c:if>
+					
+			 <c:if test="${member.id eq 'admin'}">
+			<a href="./pointMod?num=${dto.num}" class="btn btn-primary">Update</a>
+			<a href="./pointDelete?num=${dto.num}" class="btn btn-danger">Delete</a>
+			</c:if> 
 		</div>
 	</div>
 	

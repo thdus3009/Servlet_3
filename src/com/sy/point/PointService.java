@@ -31,6 +31,7 @@ public class PointService {
 	
 	//2. select
 	public PointDTO pointSelect(int num) throws Exception{
+		System.out.println("pointService Select");
 		return pointDAO.pointSelect(num);
 	}
 	

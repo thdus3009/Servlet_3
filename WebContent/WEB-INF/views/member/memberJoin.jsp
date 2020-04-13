@@ -55,7 +55,8 @@
       <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email">
     </div>  
       
-    <button type="submit" class="btn btn-default">Add</button><br><br>
+      <a href="./memberJoin" class="btn btn-primary">Update</a>
+    <!-- <button type="submit" class="btn btn-default">Add</button><br><br> -->
     
 			
 			</form>

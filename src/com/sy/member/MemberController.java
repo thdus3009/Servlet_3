@@ -12,27 +12,18 @@ import javax.servlet.http.HttpSession;
 
 import com.sy.point.PointDTO;
 
-/**
- * Servlet implementation class MemberController
- */
 @WebServlet("/MemberController")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private MemberService memberService;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MemberController() {
         super();
         this.memberService = new MemberService();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");

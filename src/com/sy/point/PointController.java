@@ -119,12 +119,18 @@ public class PointController extends HttpServlet {
 			
 		}else if(command.equals("/pointSelect")) {
 			
+			System.out.println("save0");
 			int num= Integer.parseInt(request.getParameter("num"));
+			System.out.println("save1");
 			PointDTO pointDTO = pointService.pointSelect(num);
+			System.out.println(pointDTO);
+			System.out.println("save2");
 			
 			request.setAttribute("dto", pointDTO);
+			System.out.println("save3");
 			
 			path = "../WEB-INF/views/point/PointSelect.jsp";
+			System.out.println("save4");
 			
 			
 		}else if(command.equals("/pointDelete")) {

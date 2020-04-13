@@ -57,12 +57,17 @@ public class NoticeDAO {
 		String sql = "select * from notice where num=?";
 		
 		PreparedStatement st = con.prepareStatement(sql);
-		
 		st.setInt(1, num);
 		
 		ResultSet rs = st.executeQuery();
 		
+		
+		System.out.println(rs);
+		
+		
 		if(rs.next()) {
+			noticeDTO = new NoticeDTO();
+			
 			noticeDTO.setNum(rs.getInt("num"));
 			noticeDTO.setSubject(rs.getString("subject"));
 			noticeDTO.setId(rs.getString("id"));
@@ -70,7 +75,6 @@ public class NoticeDAO {
 			noticeDTO.setHit(rs.getInt("hit"));
 			noticeDTO.setText(rs.getString("text"));
 		}
-		
 		rs.close();
 		st.close();
 		con.close();
@@ -85,21 +89,20 @@ public class NoticeDAO {
 			int result=0;
 			
 			Connection con = DBConnect.getConnection();
-			String sql = "INSERT INTO NOTICE VALUES (EX_HIT.nextval,?,?,sysdate,1,?)";
+			String sql = "INSERT INTO NOTICE VALUES (notice_seq.nextVal,?,?,sysdate,1,?)";
 			
 			PreparedStatement st = con.prepareStatement(sql);
 			
-			st.setInt(1, noticeDTO.getNum());
-			st.setString(2, noticeDTO.getSubject());
-			st.setString(3, noticeDTO.getId());
-			st.setDate(4, noticeDTO.getDay());
-			st.setInt(5, noticeDTO.getHit());
-			st.setString(6, noticeDTO.getText());
+			st.setString(1, noticeDTO.getSubject());
+			st.setString(2, noticeDTO.getId());
+			st.setString(3, noticeDTO.getText());
 			
 			result = st.executeUpdate();
 			
 			st.close();
 			con.close();
+			
+			System.out.println(result);
 			
 			return result;
 			
@@ -109,7 +112,7 @@ public class NoticeDAO {
 		public int noticeDelete(String num) throws Exception{
 			Connection con = DBConnect.getConnection();
 			
-			String sql = "delete board where num = ?";
+			String sql = "delete notice where num = ?";
 			
 			PreparedStatement st = con.prepareStatement(sql);
 			
