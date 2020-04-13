@@ -8,10 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
+</head> 
 <body>
 	<c:forEach begin="0" end="10" var="i" step="2">
-		<h1>${i}</h1>
+		<h1>${i}</h1> 
 	</c:forEach>
 </body>
 </html>
