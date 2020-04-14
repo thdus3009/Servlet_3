@@ -162,10 +162,10 @@ public class MemberController extends HttpServlet {
 		}
 		
 		///
-				if(check) {
+				if(check) {//post
 					RequestDispatcher view = request.getRequestDispatcher(path);
 					view.forward(request, response);
-				}else {
+				}else {//get
 					response.sendRedirect(path);
 				}
 	}
