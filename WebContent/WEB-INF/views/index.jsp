@@ -6,7 +6,7 @@
 <c:import url="./template/header.jsp"></c:import>
 
 <div class="container">
-  <h3>Right Aligned Navbar</h3>
+  <h3>This Page is Index Page,</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
 

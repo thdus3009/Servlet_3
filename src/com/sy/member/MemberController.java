@@ -12,31 +12,25 @@ import javax.servlet.http.HttpSession;
 
 import com.sy.point.PointDTO;
 
-/**
- * Servlet implementation class MemberController
- */
 @WebServlet("/MemberController")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private MemberService memberService;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public MemberController() {
         super();
         this.memberService = new MemberService();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
+		
+		getServletConfig(); // 현재 servlet의 객체저장
+		getServletContext(); // 전체 정보를 저장하는 객체(application, Context)
 		
 		String command = request.getPathInfo();
 		
@@ -51,6 +45,7 @@ public class MemberController extends HttpServlet {
 				if(method.equals("POST")) {
 					
 					MemberDTO memberDTO = new MemberDTO();
+					
 					memberDTO.setId(request.getParameter("id"));
 					memberDTO.setPw(request.getParameter("pw"));
 					memberDTO.setName(request.getParameter("name"));
@@ -168,10 +163,10 @@ public class MemberController extends HttpServlet {
 		}
 		
 		///
-				if(check) {
+				if(check) {//post
 					RequestDispatcher view = request.getRequestDispatcher(path);
 					view.forward(request, response);
-				}else {
+				}else {//get
 					response.sendRedirect(path);
 				}
 	}

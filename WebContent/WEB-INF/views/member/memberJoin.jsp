@@ -7,7 +7,7 @@
 
 
 <div class="container">
-  <h3>Right Aligned Navbar</h3>
+  <h3>Welcome Our Website</h3>
   <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
 </div>
 
@@ -23,7 +23,7 @@
 	<div class="container">
 		<div class="row">
 			<h1>Member Join</h1>
-			<form action="./memberJoin" method="post">
+<form action="./memberJoin" method="post">
 			
 	<div class="form-group">
       <label for="id">ID:</label>
@@ -55,10 +55,11 @@
       <input type="text" class="form-control" id="email" placeholder="Enter Email" name="email">
     </div>  
       
-    <button type="submit" class="btn btn-default">Add</button><br><br>
+     <!--  <a href="./memberJoin" class="btn btn-primary">Join</a> -->
+    <button type="submit" class="btn btn-default">Join</button><br><br>
     
 			
-			</form>
+</form>
 			
 		</div>
 	</div>
