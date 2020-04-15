@@ -17,6 +17,7 @@
       <textarea class="form-control" rows="20" id="text" name="text"></textarea>
       <br>
       <input type="submit" class="btn btn-primary" value="작성완료">
+    <!-- <button type="submit" class="btn btn-primary">작성완료</button> -->
     </div>
   </form>
 </div>	

@@ -75,7 +75,7 @@ public class PointController extends HttpServlet {
 				}
 				
 				request.setAttribute("result", msg);
-				request.setAttribute("pass", "./pointList");
+				request.setAttribute("path", "./pointList");
 				
 				path="../WEB-INF/views/common/result.jsp";//result파일경로
 				
