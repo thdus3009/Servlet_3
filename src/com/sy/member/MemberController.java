@@ -45,6 +45,7 @@ public class MemberController extends HttpServlet {
 				if(method.equals("POST")) {
 					
 					MemberDTO memberDTO = new MemberDTO();
+					
 					memberDTO.setId(request.getParameter("id"));
 					memberDTO.setPw(request.getParameter("pw"));
 					memberDTO.setName(request.getParameter("name"));

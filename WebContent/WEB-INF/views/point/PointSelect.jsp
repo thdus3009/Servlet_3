@@ -5,6 +5,21 @@
 <c:import url="../template/boot.jsp"></c:import>     
 <c:import url="../template/header.jsp"></c:import>
 
+<script language="JavaScript">
+
+function deleteCheck(){ 
+	if (confirm("삭제 하시겠습니까?")){ 
+		var num = document.getElementById("num").value;
+		//var 변수명 = document.getElementById("아이디").value;
+		location.href='./pointDelete?num='+num;
+	}else{ 
+		alert("삭제 취소 되었습니다."); 
+		return; 
+	} 
+} 
+
+</script>
+
 
 <div class="container">
 		<div class="row">
@@ -33,8 +48,9 @@
 					
 			 <c:if test="${member.id eq 'admin'}">
 			<a href="./pointMod?num=${dto.num}" class="btn btn-primary">Update</a>
-			<a href="./pointDelete?num=${dto.num}" class="btn btn-danger">Delete</a>
+			<a href="javascript:deleteCheck();" class="btn btn-danger">Delete</a>
 			</c:if> 
+			<input type="hidden" id="num" value="${dto.num}">
 		</div>
 	</div>
 	

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sy.member.MemberDTO;
+import com.sy.point.PointDTO;
 
 
 @WebServlet("/NoticeController")
@@ -89,11 +90,16 @@ public class NoticeController extends HttpServlet {
 			
 		}else if(command.equals("/noticeMod")) {
 			
-			request.setAttribute("subject",request.getParameter("subject"));
-			request.setAttribute("text",request.getParameter("text"));
-			request.setAttribute("num", request.getParameter("num"));
-			NoticeDTO noticeDTO = new NoticeDTO();
+			    int num = Integer.parseInt(request.getParameter("num")); //select정보를 dto에 보내서 mod로 보냄
+	            NoticeDTO noticeDTO = noticeService.noticeSelect(num);
+	            request.setAttribute("dto", noticeDTO);
+	            path = "../WEB-INF/views/point/PointMod.jsp";
 			
+			NoticeDTO noticeDto = new NoticeDTO();
+			
+			request.setAttribute("num", request.getParameter("num"));
+			
+	
 			if(method.equals("POST")) {
 				System.out.println("notice here");
 				noticeDTO.setNum(Integer.parseInt(request.getParameter("num")));
@@ -109,7 +115,7 @@ public class NoticeController extends HttpServlet {
 				
 				if(result >0) {
 					path="../WEB-INF/views/common/result.jsp";
-					request.setAttribute("path", "../");
+					request.setAttribute("path", "./noticeSelect?num="+num);
 					request.setAttribute("result", "게시물 수정 완료");
 				}
 				

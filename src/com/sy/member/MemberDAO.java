@@ -67,8 +67,8 @@ public class MemberDAO {
 		st.setString(1, memberDTO.getId());
 		st.setString(2, memberDTO.getPw());
 		st.setString(3, memberDTO.getName());
-		st.setString(4, memberDTO.getPhone());
-		st.setInt(5, memberDTO.getAge());
+		st.setInt(4, memberDTO.getAge());
+		st.setString(5, memberDTO.getPhone());
 		st.setString(6, memberDTO.getEmail());
 		
 		//이거작성할때 순서를 초반에 만든 그대로 적어야 에러가 나지 않는다.
