@@ -69,7 +69,7 @@ public class NoticeController extends HttpServlet {
 				int result = noticeService.noticeAdd(noticeDTO);
 				if(result>0) {
 					path="../WEB-INF/views/common/result.jsp";
-					request.setAttribute("path", "../");
+					request.setAttribute("path", "./noticeList");
 					request.setAttribute("result", "게시물 추가 완료");
 				}
 				
